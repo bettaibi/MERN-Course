@@ -8,6 +8,9 @@ const useStyle = makeStyles((theme)=> ({
     },
     buttonSpacing: {
       margin: theme.spacing(1, 0)
+    },
+    sidenav:{
+      width: 280
     }
 }));
 
