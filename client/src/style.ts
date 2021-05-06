@@ -47,7 +47,13 @@ const useStyle = makeStyles((theme)=> ({
     },
     orange: {
       backgroundColor: 'orange'
-    }
+    },
+    media: {
+      backgroundColor: '#F0F2F5',
+      height: 0,
+      paddingTop: '56.25%', // 16:9
+      objectFit: "cover",
+    },
 }));
 
 export default useStyle;

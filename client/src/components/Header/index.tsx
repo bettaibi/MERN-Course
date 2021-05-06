@@ -14,7 +14,7 @@ const Header: React.FC = () => {
 
     return (
         <React.Fragment>
-            <AppBar position="relative">
+            <AppBar position="sticky">
                 <Toolbar variant="dense">
                     <IconButton color="inherit" onClick={openHandler}>
                         <Menu />
