@@ -4,10 +4,9 @@ const Home: React.FC = () => {
 
     return (
         <div>
-            Home
-
+            Home page Components
         </div>
     )
 }
 
-export default Home
+export default Home;
