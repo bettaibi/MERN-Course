@@ -35,6 +35,18 @@ const useStyle = makeStyles((theme)=> ({
       transition: theme.transitions.create('transform', {
         duration: theme.transitions.duration.shortest
       })
+    },
+    fakeInput: {
+      width: '100%',
+      height: '40px',
+      borderRadius: '20px',
+      backgroundColor: '#F0F2F5',
+      '&:hover': {
+        backgroundColor: '#e6e7e8'
+      }
+    },
+    orange: {
+      backgroundColor: 'orange'
     }
 }));
 

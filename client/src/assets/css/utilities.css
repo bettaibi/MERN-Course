@@ -1,0 +1,30 @@
+
+/* Paddings */
+.p-0{
+    padding: 0;
+}
+.p-1{
+    padding: 8px;
+}
+.p-2{
+    padding: 16px;
+}
+.px-1{
+    padding: 0 8px;
+}
+.px-2{
+    padding: 0 16px;
+}
+.py-1{
+    padding: 8px 0;
+}
+.py-2{
+    padding: 16px 0;
+}
+.m-0{
+    margin: 0;
+}
+
+.w-100{
+    width: 100%;
+}

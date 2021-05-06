@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import { lazy, Suspense } from 'react';
 
 import {
   CssBaseline,
@@ -19,7 +19,7 @@ function App() {
       <Suspense fallback={<span>Loading...</span>}>
         <Header />
         <main>
-          <Container maxWidth="md">
+          <Container maxWidth="sm">
             <Switch>
               <Route path='/' exact component={Home} />
               <Route path='/search' component={Search} />
