@@ -11,6 +11,7 @@ import {
     Divider
 } from '@material-ui/core';
 import { MoreVert, ThumbUpAltTwoTone } from '@material-ui/icons';
+import { format } from 'date-fns';
 import useStyle from '../../style';
 
 
@@ -31,7 +32,7 @@ const Post: React.FC = () => {
                     </IconButton>
                 }
                 title = "Bettaibi Nidhal"
-                subheader = {new Date().toLocaleDateString()}
+                subheader = {format(new Date(), 'EEEE MM, yyyy')}
             />
             <CardMedia 
                 image="https://source.unsplash.com/daily"
@@ -44,7 +45,7 @@ const Post: React.FC = () => {
                 </Typography>
 
                 <Grid className="py-1" container direction="row" justify="space-between" alignItems="center">
-                    <Grid item spacing={3}>
+                    <Grid item>
                         <span>
                             45
                         </span>
@@ -60,6 +61,7 @@ const Post: React.FC = () => {
                 <Divider />
                 <div className="pt-1">
                     comment section here 
+                    {}
                 </div>
             </CardContent>
         </Card>

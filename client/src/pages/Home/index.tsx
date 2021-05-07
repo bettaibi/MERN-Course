@@ -35,11 +35,11 @@ const PostDialogContainer: React.FC = () => {
     return (
         <React.Fragment>
             <Paper className="p-2">
-                <Grid container spacing={3} direction="row">
-                    <Grid item xs={2} sm={1}>
+                <Grid container direction="row" spacing={1}>
+                    <Grid item>
                         <Avatar className={classes.orange}>N</Avatar>
                     </Grid>
-                    <Grid item xs={10} sm={11}>
+                    <Grid item className={classes.flexGrow1}>
                         <Box className={classes.fakeInput + ' ' + classes.cursor}
                             display="flex" alignItems="center" px={2}
                             onClick={openHandler}>

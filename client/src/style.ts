@@ -54,6 +54,9 @@ const useStyle = makeStyles((theme)=> ({
       paddingTop: '56.25%', // 16:9
       objectFit: "cover",
     },
+    flexGrow1: {
+      flexGrow: 1
+    }
 }));
 
 export default useStyle;

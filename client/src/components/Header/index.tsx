@@ -21,7 +21,7 @@ const Header: React.FC = () => {
                     </IconButton>
                     <Typography variant="h6">
                         MERN Stack Demo
-                </Typography>
+                    </Typography>
                 </Toolbar>
             </AppBar>
             <Sidenav show = {show} closeHandler = {closeHandler} />
