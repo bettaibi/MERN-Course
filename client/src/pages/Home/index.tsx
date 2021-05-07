@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {
     Box,
     Paper,
@@ -9,7 +8,8 @@ import {
 import useStyle from '../../style';
 import ReusableDialog from '../../components/ReusableDialog';
 import useToggle from '../../components/useToggle';
-import Post from '../../components/Post';
+import Post from './Post';
+import NewPost from './NewPost';
 
 const Home: React.FC = () => {
     const posts = [1,2,3,4]
@@ -48,9 +48,14 @@ const PostDialogContainer: React.FC = () => {
                     </Grid>
                 </Grid>
             </Paper>
-            <ReusableDialog show={show} handleClose={closeHandler} title="New Post">
-                sqmlkdl qsmldk qslkdlm
-            </ReusableDialog>
+            <ReusableDialog 
+                show={show} 
+                handleClose={closeHandler} 
+                title="New Post"
+                content = {
+                    <NewPost hadleClose = {closeHandler} />
+                }
+            />
         </React.Fragment>
     )
 }

@@ -1,13 +1,14 @@
 import React from 'react';
-import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Box } from '@material-ui/core';
+import { Dialog, DialogTitle, DialogContent, Box } from '@material-ui/core';
 
 interface ReusableDialogProps {
     title: string;
     show: boolean;
     handleClose: () => void;
+    content: JSX.Element;
 }
 
-const ReusableDialog: React.FC<ReusableDialogProps> = ({ show, handleClose, title, children }) => {
+const ReusableDialog: React.FC<ReusableDialogProps> = ({ show, handleClose, title, content }) => {
 
     return (
         <Dialog open={show} onClose={handleClose}>
@@ -18,14 +19,8 @@ const ReusableDialog: React.FC<ReusableDialogProps> = ({ show, handleClose, titl
             </DialogTitle>
 
             <DialogContent dividers>
-                {children}
+                {content}
             </DialogContent>
-
-            <DialogActions>
-                <Button autoFocus onClick={handleClose} color="primary">
-                            Save changes
-                </Button>
-            </DialogActions>
         </Dialog>
     )
 }

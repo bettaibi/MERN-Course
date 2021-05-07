@@ -10,11 +10,10 @@ export interface UserModel{
 
 export interface PostModel{
     id?: string;
-    title: string;
     content: string;
     createdAt: Date;
     status: "public" | "private";
-    media: string;
+    media?: string;
     user: string | UserModel;
     thumbup?: number;
     thumbDown?: number;

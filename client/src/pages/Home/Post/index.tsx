@@ -8,12 +8,13 @@ import {
     IconButton,
     Typography,
     Grid,
-    Divider
+    Divider,
+    ButtonGroup,
+    Button
 } from '@material-ui/core';
 import { MoreVert, ThumbUpAltTwoTone } from '@material-ui/icons';
 import { format } from 'date-fns';
-import useStyle from '../../style';
-
+import useStyle from '../../../style';
 
 const Post: React.FC = () => {
     const classes = useStyle();
@@ -44,7 +45,7 @@ const Post: React.FC = () => {
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi, enim nobis laborum at blanditiis esse quod corporis exercitationem consectetur deserunt. Aliquid in aspernatur, aut voluptate corrupti veniam voluptates incidunt libero!
                 </Typography>
 
-                <Grid className="py-1" container direction="row" justify="space-between" alignItems="center">
+                {/* <Grid className="py-1" container direction="row" justify="space-between" alignItems="center">
                     <Grid item>
                         <span>
                             45
@@ -57,11 +58,13 @@ const Post: React.FC = () => {
                     <Grid item>
                         9 Comments
                     </Grid>
-                </Grid>
-                <Divider />
+                </Grid> */}
+               
                 <div className="pt-1">
-                    comment section here 
-                    {}
+                    <ButtonGroup fullWidth>
+                        <Button>18 Like</Button>
+                        <Button>12 Comments</Button>
+                    </ButtonGroup>
                 </div>
             </CardContent>
         </Card>
