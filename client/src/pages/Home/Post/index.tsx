@@ -7,12 +7,12 @@ import {
     Avatar,
     IconButton,
     Typography,
-    Grid,
-    Divider,
+    Menu,
+    MenuItem,
     ButtonGroup,
     Button
 } from '@material-ui/core';
-import { MoreVert, ThumbUpAltTwoTone } from '@material-ui/icons';
+import { MoreVert } from '@material-ui/icons';
 import { format } from 'date-fns';
 import useStyle from '../../../style';
 
@@ -21,23 +21,21 @@ const Post: React.FC = () => {
 
     return (
         <Card className="mb-2">
-            <CardHeader 
-                avatar = {
+            <CardHeader
+                avatar={
                     <Avatar className={classes.orange} sizes="sm" >
                         N
                     </Avatar>
                 }
-                action = {
-                    <IconButton>
-                        <MoreVert />
-                    </IconButton>
+                action={
+                    <ActionMenu />
                 }
-                title = "Bettaibi Nidhal"
-                subheader = {format(new Date(), 'EEEE MM, yyyy')}
+                title="Bettaibi Nidhal"
+                subheader={format(new Date(), 'EEEE MM, yyyy')}
             />
-            <CardMedia 
+            <CardMedia
                 image="https://source.unsplash.com/daily"
-                className = {classes.media}
+                className={classes.media}
                 title="random image"
             />
             <CardContent>
@@ -59,7 +57,7 @@ const Post: React.FC = () => {
                         9 Comments
                     </Grid>
                 </Grid> */}
-               
+
                 <div className="pt-1">
                     <ButtonGroup fullWidth>
                         <Button>18 Like</Button>
@@ -68,6 +66,35 @@ const Post: React.FC = () => {
                 </div>
             </CardContent>
         </Card>
+    )
+}
+
+const ActionMenu: React.FC = () => {
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+
+    const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
+    return (
+        <React.Fragment>
+            <IconButton onClick={handleClick}>
+                <MoreVert />
+            </IconButton>
+            <Menu
+                anchorEl={anchorEl}
+                keepMounted
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+            >
+                <MenuItem onClick={handleClose}>Delete</MenuItem>
+                <MenuItem onClick={handleClose}>Edit</MenuItem>
+            </Menu>
+        </React.Fragment>
     )
 }
 

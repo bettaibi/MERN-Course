@@ -3,6 +3,7 @@ import { Formik, Form } from 'formik';
 import { MenuItem, Select, TextField, Button, Box, makeStyles} from '@material-ui/core';
 import * as yup from 'yup';
 import { PostModel } from '../../../models/app.model';
+import useToast from '../../../components/useToast';
 
 const schema = yup.object().shape({
     content: yup.string().required('Content is required'),
@@ -27,19 +28,22 @@ interface NewPostPros{
 }
 const NewPost: React.FC<NewPostPros> = ({hadleClose}) => {
     const classes = useFormStyles();
+    const { Toast, showMsg } = useToast({vertical: 'top', horizontal: 'right'});
 
     const submitHandler = (values: PostModel, resetForm: () => void) => {
         console.log(values);
+        showMsg('New Post has been created', 'info');
         resetForm();
     };
 
     return (
         <React.Fragment>
+            <Toast />
             <Formik initialValues={INITIAL_VALUE} validationSchema={schema}
                 onSubmit={(values, {resetForm}) => submitHandler(values, resetForm)}>
                 {
                     ({ values, touched, errors, handleBlur, handleChange, handleSubmit }) => (
-                        <Form>
+                        <Form onSubmit = {handleSubmit} autoComplete = "off">
                             <TextField
                                 type="text"
                                 name="content"
