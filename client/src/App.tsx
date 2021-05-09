@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 const Header = lazy(() => import('./components/Header'));
 const Home = lazy(() => import('./pages/Home'));
 const Search = lazy(() => import('./pages/Search'));
+const Users = lazy(() => import('./pages/Users'));
 
 function App() {
 
@@ -23,6 +24,7 @@ function App() {
             <Switch>
               <Route path='/' exact component={Home} />
               <Route path='/search' component={Search} />
+              <Route path='/users' component={Users} />
             </Switch>
           </Container>
         </main>
