@@ -10,6 +10,7 @@ const Header = lazy(() => import('./components/Header'));
 const Home = lazy(() => import('./pages/Home'));
 const Search = lazy(() => import('./pages/Search'));
 const Users = lazy(() => import('./pages/Users'));
+const PaginatedPosts = lazy(() => import('./pages/PaginatedPosts'));
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
               <Route path='/' exact component={Home} />
               <Route path='/search' component={Search} />
               <Route path='/users' component={Users} />
+              <Route path='/paginated_posts' component={PaginatedPosts} />
             </Switch>
           </Container>
         </main>

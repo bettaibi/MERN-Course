@@ -75,6 +75,11 @@ const SidenavContent: React.FC<SidenavContentProps> = ({ classes }) => {
                         Search
                     </NavLink>
                 </li>
+                <li className={classes.navLinkSpacing}>
+                    <NavLink to="/paginated_posts" className={classes.navLink} activeClassName={classes.NavLiknActive}>
+                        Posts Server Pagination
+                    </NavLink>
+                </li>
             </ul>
         </Box>
     )
