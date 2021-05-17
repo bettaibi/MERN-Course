@@ -25,6 +25,7 @@ const PaginatedStyle = makeStyles((theme)=> ({
         gap: '1rem'
     }
 }));
+let loadedPages: any[] = [];
 
 const PaginatedPosts: React.FC = () => {
     const [options, setOptions] = useState<PaginationOption>({ page: 1, limit: 5, slices: 0, visitedPages: [] });
@@ -39,6 +40,17 @@ const PaginatedPosts: React.FC = () => {
 
     }, [options]);
 
+    const cachingData = () => {
+        try{
+            const startIndex = (options.page-1) * options.limit;
+            const endIndex = options.page + options.limit;
+            setResults(loadedPages.slice(startIndex, endIndex));
+        }   
+        catch(err){
+            throw err;
+        }
+    }
+
     async function getPosts() {
         const res = await axios.get('http://localhost:5000/posts', {
             headers: {
@@ -50,13 +62,19 @@ const PaginatedPosts: React.FC = () => {
             }
         });
         const data = await res.data;
-        setResults([...results,...data.result]);
+        if(!options.visitedPages.includes(options.page))
+        loadedPages = [...loadedPages, ...data.result];
         setOptions({ ...options, slices: Math.ceil(data.records / options.limit), visitedPages: [...options.visitedPages, options.page] });
+        setResults(data.result);
         console.log(results.length)
     }
 
     const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
         setOptions({ ...options, page: value})
+        setTimeout(()=>{
+            cachingData();
+        },3000)
+        
     };
 
     return (
@@ -68,9 +86,7 @@ const PaginatedPosts: React.FC = () => {
                 <Box my={2} className= {classes.grid}>
                  
                    { results.map((item: any, index: number) => (
-                       <>
                         <PostItem key={item._id+index} post={item} />
-                       </>
                     ))}
             </Box></> : <span>Loading...</span>}
         </React.Fragment>
