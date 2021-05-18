@@ -12,8 +12,7 @@ app.get('/', (req: Request, res: Response, next: NextFunction) => {
 
 
 app.get('/posts', getPaginatedData(Post), (req: Request, res: Response, next: NextFunction) => {
-   
-
+    
     return res.json(res.locals.posts);
 });
 

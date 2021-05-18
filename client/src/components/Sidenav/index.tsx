@@ -80,6 +80,11 @@ const SidenavContent: React.FC<SidenavContentProps> = ({ classes }) => {
                         Posts Server Pagination
                     </NavLink>
                 </li>
+                <li className={classes.navLinkSpacing}>
+                    <NavLink to="/infinite_scroll" className={classes.navLink} activeClassName={classes.NavLiknActive}>
+                        Posts Infinite Scroll
+                    </NavLink>
+                </li>
             </ul>
         </Box>
     )

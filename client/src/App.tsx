@@ -11,6 +11,7 @@ const Home = lazy(() => import('./pages/Home'));
 const Search = lazy(() => import('./pages/Search'));
 const Users = lazy(() => import('./pages/Users'));
 const PaginatedPosts = lazy(() => import('./pages/PaginatedPosts'));
+const PostsInfiniteScroll = lazy(() => import('./pages/PostsInfiniteScroll'));
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
               <Route path='/search' component={Search} />
               <Route path='/users' component={Users} />
               <Route path='/paginated_posts' component={PaginatedPosts} />
+              <Route path='/infinite_scroll' component={PostsInfiniteScroll} />
             </Switch>
           </Container>
         </main>
