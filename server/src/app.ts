@@ -16,4 +16,15 @@ app.get('/posts', getPaginatedData(Post), (req: Request, res: Response, next: Ne
     return res.json(res.locals.posts);
 });
 
+app.get('/posts/:query', async (req: Request, res: Response, next: NextFunction) => {
+    try{
+        const q = req.params.query;
+        const list = await Post.find({title: {$regex: `.*${q}.*`}}, {title: 1});
+        return res.json(list);
+    }
+    catch(err){
+        throw err;
+    }
+})
+
 export default app;
